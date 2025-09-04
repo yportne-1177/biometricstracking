@@ -1,0 +1,14 @@
+# Power Automate Flow: Flow_AddPdfToc_Cloud
+
+## Trigger
+Power Apps (V2) with two Text inputs:
+- sourcePath: OneDrive path to source PDF
+- outputFolder: OneDrive folder for output
+
+## Actions
+1. Get file content using path
+2. Compose: base64 encode file content
+3. HTTP POST to Azure Function
+4. Create file in OneDrive
+5. Create share link
+6. Respond to Power App with status, outputPath, shareLink, error

@@ -1,0 +1,2 @@
+azure-functions
+pymupdf==1.24.9

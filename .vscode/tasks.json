@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Deploy Function App",
+      "type": "shell",
+      "command": "az deployment group create --resource-group <your-resource-group> --template-file deploy/function_deploy.bicep --parameters functionAppName=<your-func-name> storageAccountName=<your-storage-name>",
+      "problemMatcher": []
+    }
+  ]
+}

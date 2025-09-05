@@ -1,0 +1,19 @@
+
+# Power Apps Screen: scrPdfToc
+
+## Controls
+- txtSourcePath: Text input
+- txtOutputFolder: Text input
+- btnCreateToc: Button
+- btnOpenLink: Button
+
+## Formulas
+btnCreateToc.OnSelect:
+Set(varResult, Flow_AddPdfToc_Cloud.Run({sourcePath: txtSourcePath.Text, outputFolder: txtOutputFolder.Text}));
+If(varResult.status = "OK", Notify("TOC created", NotificationType.Success), Notify("Error: " & Coalesce(varResult.error, "Unknown error"), NotificationType.Error));
+
+btnOpenLink.DisplayMode:
+If(IsBlankOrError(varResult.shareLink), Disabled, Edit)
+
+btnOpenLink.OnSelect:
+Launch(varResult.shareLink)
